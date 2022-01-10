@@ -7,11 +7,13 @@ s = Styles()
 
 class Game():
     def __init__(self):
+        """Enter the initial data for the game"""
         header()
         self.computer = randint(1, 10)
         self.player = input('Guess a number between 1 and 10: ')
 
     def play(self):
+        """Run the game"""
         if not self.player.isnumeric():
             self.player = player_is_numeric(self.player)
         while True:
@@ -40,6 +42,7 @@ class Game():
 
 
 def player_is_numeric(player):
+    """Validates if the player number is numeric"""
     while not player.isnumeric():
         player = input(
             f'{fc.red}Invalid input! Type only a number between 1 and 10: {s.end}')
@@ -47,6 +50,7 @@ def player_is_numeric(player):
 
 
 def play_again_is_Yes_or_No(play_again):
+    """Validates if the player response is 'Yes' or 'No'"""
     while play_again not in 'YN':
         play_again = str(
             input(f'{fc.red}Invalid input! Type Y or N: {s.end}')).strip().upper()
@@ -56,6 +60,7 @@ def play_again_is_Yes_or_No(play_again):
 
 
 def header():
+    """Create a header"""
     title = '   GUESS A NUMBER   '
     title_length = len(title)
     print('-' * title_length)
@@ -64,6 +69,7 @@ def header():
 
 
 def footer():
+    """Create a footer"""
     title = '   END GAME   '
     title_length = len(title)
     print('-' * title_length)
